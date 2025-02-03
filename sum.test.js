@@ -1,4 +1,5 @@
 const { sum, myFunction } = require("./sum");
+const fetchData = require("./async");
 
 test('adds two numbers a and b', () => {
     expect(sum(1, 2)).toBe(3);
@@ -29,4 +30,17 @@ test('throws on invalid input', () => {
     expect(() => {
         myFunction('hello');
     }).toThrow();
+});
+
+test('data check', done  => {
+    const callback = (data) => {
+        try {
+            expect(data).toBe("Hello World from Nischal Paliwal");
+            done();
+        } catch (error) {
+            done(error);
+        }
+    }
+
+    fetchData(callback);
 })
