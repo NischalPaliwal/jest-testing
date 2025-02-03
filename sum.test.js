@@ -1,4 +1,4 @@
-const sum = require("./sum");
+const { sum, myFunction } = require("./sum");
 
 test('adds two numbers a and b', () => {
     expect(sum(1, 2)).toBe(3);
@@ -24,3 +24,9 @@ test("one is truthy", () => {
     const n = 1;
     expect(n).toBeTruthy();
 });
+
+test('throws on invalid input', () => {
+    expect(() => {
+        myFunction('hello');
+    }).toThrow();
+})
